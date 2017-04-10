@@ -1,5 +1,29 @@
 <nav>
   <a [routerLink]="['/']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}">HOME</a>
   <a [routerLink]="['/about']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}">ABOUT</a>
-  <a [routerLink]="['/vehicles']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}">VEHICLES</a>
+  
+  <!--<a [routerLink]="['/tracks']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}">tracks</a>
+  
+    <a [routerLink]="['/tracks/track/redbud']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}">track</a>
+  
+    <a [routerLink]="['/tracks/track/Wick-338']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}">track</a>
+  -->
+
+<div class="btn-group" dropdown>
+  <button id="single-button" type="button" class="btn btn-primary" dropdownToggle>
+    Button dropdown <span class="caret"></span>
+  </button>
+  <ul dropdownMenu role="menu" aria-labelledby="single-button">
+    <!--<li role="menuitem"><a class="dropdown-item" href="#">Action</a></li>
+    <li role="menuitem"><a class="dropdown-item" href="#">Another action</a></li>
+    <li role="menuitem"><a class="dropdown-item" href="#">Something else here</a></li>
+    <li class="divider dropdown-divider"></li>
+    <li role="menuitem"><a class="dropdown-item" href="#">Separated link</a></li>-->
+
+    <li role="menuitem" *ngFor="let a of t"><a class="dropdown-item" routerLink="/tracks/track/{{a.name}}" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}">{{a.name}}</a></li>
+  </ul>
+</div>
+
+ <a [routerLink]="['/contact-us']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}">CONTACT US</a>
+ 
 </nav>

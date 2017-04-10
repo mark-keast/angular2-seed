@@ -1,0 +1,8 @@
+<h2>{{tracktitle}}</h2>
+
+<div *ngFor="let item of list">
+    <a class="dropdown-item" routerLink="rider/{{item._id}}" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}">
+    track/rider/ <strong>Series:</strong> {{item.series}} <strong>Class:</strong> {{item.class}} <strong>Moto:</strong> {{item.moto}} Riders Results</a>
+</div>
+
+<router-outlet></router-outlet>

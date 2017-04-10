@@ -1,0 +1,31 @@
+<div class="row">
+    <form novalidate [formGroup]="userform" (ngSubmit)="saveUser()">
+    <div class="col-xs-12">
+    <label>Name:
+        <input formControlName="name" id="name" />
+    </label>
+    <control-messages [control]="userform.controls.name">
+        <div>Required</div>
+    </control-messages>
+    </div>
+    <div class="col-xs-12">
+    <label>Email:
+        <input formControlName="email" id="email" />
+    </label>
+    <control-messages [control]="userform.controls.email">
+    <div>Invalid</div>    
+    </control-messages>
+    </div>
+    <div class="col-xs-12">
+    <label>Profile:
+        <input formControlName="profile" id="profile" />
+    </label>
+    <control-messages [control]="userform.controls.profile">
+        <div>Invalid</div>     
+    </control-messages>
+    </div>
+    <div class="col-xs-12">
+    <button type="submit" [disabled]="!userform.valid">Submit</button>
+    </div>
+</form>
+</div>

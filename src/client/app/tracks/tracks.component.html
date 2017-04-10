@@ -1,0 +1,56 @@
+<!--tracks....
+
+  
+    <a [routerLink]="['/tracks/track/redbud']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}">track r</a>
+  
+    <a [routerLink]="['/tracks/track/Wick-338']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}">track w</a>
+  -->
+
+<div class="row">
+    <div class="col-xs-12">
+
+<!--<ul class="list-group">
+        <li *ngFor="let course of list">
+            <a routerLink="track/{{course._id}}">{{course.track}}</a>
+        </li>
+</ul>        -->
+            <!--<ul class="list-group">
+                <li class="list-group-item">Track Names</li>
+                <li class="list-group-item"> Hangtown</li>
+                <li class="list-group-item"> Glen-Helen-Raceway</li>
+                <li class="list-group-item"> Thunder-Valley</li>
+                <li class="list-group-item"> High-Point-Raceway</li>
+                <li class="list-group-item"> Muddy-Creek-Raceway</li>
+                <li class="list-group-item"> <a routerLink="track/{{1236454}}">Redbud</a></li>
+                <li class="list-group-item"> Wick-338</li>
+                <li class="list-group-item"> Spring-Creek-MX-Park</li>
+                <li class="list-group-item"> Washougal-MX-Park</li>
+                <li class="list-group-item"> Unadilla</li>
+                <li class="list-group-item"> Budds-Creek-Motocross</li>
+                <li class="list-group-item">Ironman-Raceway</li>
+            </ul>-->
+    </div>
+<!--<div *ngIf="list">-->
+    <!--<ul>
+        <li *ngFor="let course of list">
+            {{course.track}} 
+            {{course.id}}
+            {{course.date}} {{course.location}} {{course.race}}
+
+            {{course.moto}}
+            {{course.round}}
+            {{course.series}}
+            {{course.class}}
+
+            <ul>
+                <li *ngFor="let rider of course.riderData">
+                {{rider.bike}} {{rider.name}} {{rider.number}}
+                </li>
+            </ul>
+        </li>
+    </ul>-->
+    <div class="col-xs-12">
+        <router-outlet></router-outlet>
+    </div>
+</div>
+<!--</div>-->

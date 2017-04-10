@@ -5,18 +5,44 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+// import { ValidationService } from './form-validation-service/validation.service';
+
 import { AboutModule } from './about/about.module';
 import { HomeModule } from './home/home.module';
-import { VehicleModule } from './vehicles/vehicle.module';
+import { TracksModule } from './tracks/tracks.module';
+import { ContactUsModule } from './contact-us/contact-us.module';
 import { SharedModule } from './shared/shared.module';
 
+import { TrackListService } from './services/courses-list.service';
+import { TrackResolve } from './tracks/track/track.resolve';
+
+
 @NgModule({
-  imports: [BrowserModule, HttpModule, AppRoutingModule, AboutModule, HomeModule, VehicleModule, SharedModule.forRoot()],
-  declarations: [AppComponent],
+  imports: [
+    BrowserModule,
+    HttpModule,
+    AppRoutingModule,
+    AboutModule,
+    HomeModule,
+    TracksModule,
+    ContactUsModule,
+    SharedModule.forRoot(),
+    FormsModule,
+    ReactiveFormsModule
+    ],
+  declarations: [
+    AppComponent
+    ],
   providers: [{
     provide: APP_BASE_HREF,
     useValue: '<%= APP_BASE %>'
-  }],
+  },
+  TrackListService,
+  TrackResolve,
+  // ValidationService
+  ],
   bootstrap: [AppComponent]
 
 })
