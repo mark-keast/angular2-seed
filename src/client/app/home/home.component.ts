@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit {
   newName: string = '';
   errorMessage: string;
   names: any[] = [];
+  private ranHPNumber:number =0;
 
   /**
    * Creates an instance of the HomeComponent with the injected
@@ -53,6 +54,9 @@ export class HomeComponent implements OnInit {
     this.newName = '';
     return false;
   }
+    public randomNumber() {
+        this.ranHPNumber = Math.floor(Math.random() *100 +1);
+    }  
 
 }
 
@@ -74,11 +78,10 @@ export class HomeComponent implements OnInit {
 
 export class ListDoctorsComponent {
   private doctors : Array<object> = [];
-  
   addDoctor() {
     this.doctors.push({'name':'mark keast'});
   }
-  
+
   constructor(http: Http) {
     // http.get('./doctorslist.php')
     http.get('assets/doctorslist.json')
@@ -88,5 +91,5 @@ export class ListDoctorsComponent {
           this.doctors.push(data);
 
         });
-  }
+  }  
 }
