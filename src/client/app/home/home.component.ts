@@ -1,3 +1,4 @@
+import { Http } from '@angular/http';
 import { Component, OnInit } from '@angular/core';
 import { NameListService } from '../shared/name-list/name-list.service';
 
@@ -53,4 +54,39 @@ export class HomeComponent implements OnInit {
     return false;
   }
 
+}
+
+
+
+//   ng angular extra stuff
+
+@Component({
+  moduleId: module.id,
+	selector: 'list-doctors',
+	template: `
+	  <b>Angular 2 HTTP requests using RxJs Observables!</b>
+	  <ul>
+	    <li *ngFor="let doctor of doctors">{{doctor.name}}</li>
+	  </ul>
+	  <span (click)="addDoctor()">add me to list</span>
+	  `
+})
+
+export class ListDoctorsComponent {
+  private doctors : Array<object> = [];
+  
+  addDoctor() {
+    this.doctors.push({'name':'mark keast'});
+  }
+  
+  constructor(http: Http) {
+    // http.get('./doctorslist.php')
+    http.get('assets/doctorslist.json')
+    // http.get('http://jsonplaceholder.typicode.com/users/')
+        .flatMap((data) => data.json())
+        .subscribe((data) => {
+          this.doctors.push(data);
+
+        });
+  }
 }

@@ -1,0 +1,27 @@
+Option's
+{{id}}
+formSaved = {{formSaved}}
+<button (click)="sendMessage()">Send Message</button>
+
+<p>
+    you have chosen
+</p>
+<ul>
+    <li>{{service.data.optionOne}}</li>
+    <li>{{service.data.optionTwo}}</li>
+    <li>{{service.data.optionThree}}</li>
+    <li>{{service.data.summary}}</li>
+</ul>
+<form [formGroup]="optionsForm" (ngSubmit)="saveForm()"> 
+    <ul class="list-group">
+    <li class="list-group-item"><label><input type="checkbox" ([ngModel])="optionsForm.optionOne" formControlName="optionOne"> Option 1</label></li>
+    <li class="list-group-item"><label><input type="checkbox" ([ngModel])="optionsForm.optionTwo" formControlName="optionTwo"> Option 2</label></li>
+    <li class="list-group-item"><label><input type="checkbox" ([ngModel])="optionsForm.optionThree" formControlName="optionThree"> Option 3</label></li>
+    <li class="list-group-item"><label>Summary<textarea type="checkbox" ([ngModel])="optionsForm.summary" formControlName="summary">{{optionsForm.summary}}</textarea></label></li>
+    <li class="list-group-item"><button [disabled]="!optionsForm.valid">Save</button></li>
+    </ul>
+    optionsForm valid = {{optionsForm.valid}}    
+    <br>
+    <!--optionsForm.optionOne = {{optionsForm.optionOne}}    
+    {{formData.optionOne}}-->
+</form>

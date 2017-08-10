@@ -1,23 +1,25 @@
 import { FormNavigator } from './../navigator/form.navigator';
 import { FormService } from './../services/form.service';
 import { NgModule } from '@angular/core';
-import { ContactUsComponent } from './contact-us.component';
-import { ContactUsRoutingModule } from './contact-us-routing.module';
 import { CommonModule } from '@angular/common';
+import { ResidencyFormComponent, CartBadgeCmpComponent } from './residency.component';
+import { ResidencyFormRoutingModule } from './residency-routing.module';
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ControlMessageModule } from './../form-control-messages/control-messages.module';
+
 
 @NgModule({
   imports: [
   CommonModule,
-  ContactUsRoutingModule,
+  ResidencyFormRoutingModule,
   ReactiveFormsModule,
-  FormsModule,
-  ControlMessageModule],
+  FormsModule],
   declarations: [
-    ContactUsComponent],
+    ResidencyFormComponent,
+    CartBadgeCmpComponent],
   exports: [
-    ContactUsComponent],
+    ResidencyFormComponent,
+    CartBadgeCmpComponent],
   providers: [FormService, FormNavigator]
 })
-export class ContactUsModule { }
+export class ResidencyFormModule { }

@@ -1,0 +1,23 @@
+Residency form
+
+
+<div *ngIf="formData" class="row">
+    <div class="col-xs-12"><strong>Name :</strong> {{formData.name}}</div>
+    <div class="col-xs-12"><strong>Email :</strong> {{formData.email}}</div>
+    <div class="col-xs-12"><strong>Profile :</strong> {{formData.profile}}</div>
+</div>
+<div class="row">
+<form [formGroup]="residencyForm" (ngSubmit)="updateResidency()">
+    <div class="col-xs-12">
+        <ul class="list-group">
+            <li class="list-group-item"><label><input type="text" formControlName="houseNumber" /></label></li>
+            <li class="list-group-item"><label><input type="text" formControlName="address1"></label></li>
+            <li class="list-group-item"><label><input type="text" formControlName="address2"></label></li>
+            <li class="list-group-item"><label><input type="text" formControlName="postcode"></label></li>
+            <li class="list-group-item"> <button [disabled]="!residencyForm.valid">submit</button></li>
+        </ul>
+    </div>
+</form>
+</div>
+
+<cartbadge-cmp [addItemStream]="item" [nameNew]="'string with name in it'"></cartbadge-cmp>

@@ -1,3 +1,4 @@
+import { ProgressBarCircleComponent } from './progressBarCircle/progress-bar-circle.component';
 import { DropdownModule } from 'ng2-bootstrap/dropdown';
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -14,9 +15,19 @@ import { NameListService } from './name-list/name-list.service';
 
 @NgModule({
   imports: [CommonModule, RouterModule, DropdownModule.forRoot()],
-  declarations: [ToolbarComponent, NavbarComponent],
-  exports: [ToolbarComponent, NavbarComponent,
-    CommonModule, FormsModule, RouterModule]
+  declarations: [
+    ToolbarComponent,
+    NavbarComponent,
+    ProgressBarCircleComponent
+    ],
+  exports: [
+    ToolbarComponent,
+    NavbarComponent,
+    ProgressBarCircleComponent,
+    CommonModule,
+    FormsModule,
+    RouterModule
+    ]
 })
 export class SharedModule {
   static forRoot(): ModuleWithProviders {

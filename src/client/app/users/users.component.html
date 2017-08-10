@@ -1,0 +1,18 @@
+
+<section>
+     <div *ngIf="message" class="alert alert-success">{{message.text}}</div>
+    <div class="row">
+        <div class="col-xs-6">
+           <h1>Users</h1>
+            <ul>
+                <li *ngFor="let user of users">
+                    <a [routerLink]="['./user',user.id]" [routerLinkActive]="['setLink']" [routerLinkActiveOptions]="{exact: true}">{{user.firstname}} {{user.lastname}}
+                    <small class="d-inline">{{user.email}}</small></a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-xs-6">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</section>
