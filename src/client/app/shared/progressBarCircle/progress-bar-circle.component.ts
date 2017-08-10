@@ -20,10 +20,15 @@ export class ProgressBarCircleComponent implements AfterViewInit, OnInit{
 
     private valuePerc:number;
     private ranNumberIs:number = 0;
+    private percentageShow:number = 0;
+    private canvas:CanvasRenderingContext2D;
+    private startPoint = 0.06283185307179587;
+ 	private increment = this.startPoint;
     constructor() {   }
 
     public ngOnInit(){
-        this.valuePerc = 85;
+        this.valuePerc = 35;
+        this.percentageShow = (this.valuePerc / 100) * (Math.PI * 2);
 
     }
     public ngAfterViewInit(){
@@ -39,11 +44,24 @@ export class ProgressBarCircleComponent implements AfterViewInit, OnInit{
 
 
     public animateCircle(valPerc:number) {
+        this.canvas = this.circle.nativeElement.getContext('2d');
+        this.canvas.beginPath();
+	    this.canvas.arc(this.circle.nativeElement.width / 2,
+        this.circle.nativeElement.height / 2,
+        this.circle.nativeElement.width / 3 , -1.5, this.increment -1.5,false);
+
+	    this.canvas.lineWidth = 10;
+	    this.canvas.strokeStyle = '#ffd6d6';
+	    this.canvas.stroke();
+	    this.canvas.closePath();
+
+
         this.ranNumberIs = valPerc;
         console.log(valPerc);
         valPerc = valPerc + 1;
         console.log(valPerc);
-        if (valPerc < 100) {
+        this.increment = (this.increment + this.startPoint);
+        if (this.increment < this.percentageShow) {
             requestAnimationFrame(() => this.animateCircle(valPerc));
         }
   }
