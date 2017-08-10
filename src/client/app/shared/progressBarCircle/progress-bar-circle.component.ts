@@ -38,17 +38,21 @@ export class ProgressBarCircleComponent implements AfterViewInit, OnInit{
     // tslint:disable-next-line:no-empty
     public randomNumber() {
         let randomNumber = Math.floor(Math.random() *100) +1;
-        this.ranNumberIs = randomNumber;
-        this.animateCircle(randomNumber);
+		this.percentageShow = (randomNumber / 100) * (Math.PI * 2);
+		this.startPoint = 0.06283185307179587;
+ 		this.increment = this.startPoint;
+        this.ranNumberIs = this.percentageShow ;
+        this.animateCircle(this.ranNumberIs);
     }
 
 
     public animateCircle(valPerc:number) {
         this.canvas = this.circle.nativeElement.getContext('2d');
+        this.canvas.clearRect(0, 0, this.circle.nativeElement.width, this.circle.nativeElement.height);
         this.canvas.beginPath();
 	    this.canvas.arc(this.circle.nativeElement.width / 2,
         this.circle.nativeElement.height / 2,
-        this.circle.nativeElement.width / 3 , -1.5, this.increment -1.5,false);
+        this.circle.nativeElement.width / 3 , -1.55, this.increment -1.55,false);
 
 	    this.canvas.lineWidth = 10;
 	    this.canvas.strokeStyle = '#ffd6d6';
@@ -57,9 +61,9 @@ export class ProgressBarCircleComponent implements AfterViewInit, OnInit{
 
 
         this.ranNumberIs = valPerc;
-        console.log(valPerc);
-        valPerc = valPerc + 1;
-        console.log(valPerc);
+        // console.log(valPerc);
+        // valPerc = valPerc + 1;
+        // console.log(valPerc);
         this.increment = (this.increment + this.startPoint);
         if (this.increment < this.percentageShow) {
             requestAnimationFrame(() => this.animateCircle(valPerc));
