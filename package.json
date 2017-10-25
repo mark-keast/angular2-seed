@@ -142,6 +142,7 @@
     "@angular/platform-browser-dynamic": "^4.0.0-rc.2",
     "@angular/router": "^4.0.0-rc.2",
     "@angular/service-worker": "^1.0.0-beta.6",
+    "angular-2-accordian": "^1.0.5",
     "bootstrap": "^3.3.7",
     "chart.js": "^2.6.0",
     "core-js": "^2.4.1",

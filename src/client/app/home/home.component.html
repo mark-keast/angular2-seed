@@ -1,6 +1,13 @@
 <button (click)="randomNumber()">random {{ranHPNumber}}</button>
 <p>random HP number {{ranHPNumber}}
-  <progress-bar-circle [percentage]="ranHPNumber" [description]="'test this works'"></progress-bar-circle>
+  <progress-bar-circle 
+    [percentage]="ranHPNumber" 
+    [description]="'test this works'" 
+    [lineWidth]="8" 
+    [width]="150"
+    [circleColour]="'#858454'">
+  </progress-bar-circle>
+  <!--<progress-bar-circle [percentage]="ranHPNumber" [description]="'test this works'"></progress-bar-circle>-->
 </p>
 <p>Howdy! Here's a list of awesome computer scientists. Do you know any others? Add to the list yourself.</p>
 

@@ -8,7 +8,7 @@ import { Component, OnInit, Input, ViewChild, ElementRef, AfterViewInit, OnChang
         <button (click)="randomNumber()">random {{ranNumberIs}}</button>
         {{percentage}} {{description}}
         <br />
-        <canvas #circle width="300" height="300">
+        <canvas #circle width="{{width}}" height="{{width}}">
         <br />
         
 
@@ -18,6 +18,9 @@ import { Component, OnInit, Input, ViewChild, ElementRef, AfterViewInit, OnChang
 export class ProgressBarCircleComponent implements AfterViewInit, OnInit, OnChanges {
 @Input() percentage:number;
 @Input() description:string;
+@Input() circleColour:string = '#f70c0c';
+@Input() lineWidth:number = 14;
+@Input() width:number = 300;
 @ViewChild('circle')circle:ElementRef;
 
     private valuePerc:number;
@@ -33,7 +36,8 @@ export class ProgressBarCircleComponent implements AfterViewInit, OnInit, OnChan
 
     // set default font sizes based on 300x300
     private fontPercSize:string = '80';
-    private fontTextSize:string = '50';
+    // private fontTextSize:string = '50';
+    private fontTextSize:string = '35';
 
     constructor() {   }
 
@@ -96,13 +100,15 @@ export class ProgressBarCircleComponent implements AfterViewInit, OnInit, OnChan
 
         this.canvas.beginPath();
         this.canvas.arc(this.circle.nativeElement.width / 2,
-        this.circle.nativeElement.height / 2,
-        this.circle.nativeElement.width / 2.2 , -1.55, Math.PI *2,false);
+       this.circle.nativeElement.height / 2,
+       this.circle.nativeElement.width / 2.2 , -1.55, Math.PI *2,false);
+
+
         // this.canvas.arc(this.circle.nativeElement.width / 2,
         // this.circle.nativeElement.height / 2,
         // this.circle.nativeElement.width / 3 , -1.55, Math.PI *2,false);
-        this.canvas.lineWidth = 8;
-        this.canvas.strokeStyle = '#ffd6d6';
+        this.canvas.lineWidth = this.lineWidth; //8;
+        this.canvas.strokeStyle = '#bdbdbd';
         this.canvas.stroke();
         this.canvas.closePath();
 
@@ -111,8 +117,8 @@ export class ProgressBarCircleComponent implements AfterViewInit, OnInit, OnChan
         this.circle.nativeElement.height / 2,
         this.circle.nativeElement.width / 2.2 , -1.55, this.increment -1.55,false);
 
-        this.canvas.lineWidth = 8;
-        this.canvas.strokeStyle = '#f70c0c';
+        this.canvas.lineWidth = this.lineWidth; //8;
+        this.canvas.strokeStyle = this.circleColour;
         this.canvas.stroke();
         this.canvas.closePath();
 
@@ -125,12 +131,12 @@ export class ProgressBarCircleComponent implements AfterViewInit, OnInit, OnChan
         if (this.increment < this.percentageShow) {
             requestAnimationFrame(() => this.animateCircle(valPerc));
         }else {
-            this.doText(this.randomNumberPerc + '%',this.fontPercSize + 'px sans-serif',
-             (this.circle.nativeElement.width / 4 ) *1.09,
-             (this.circle.nativeElement.height / 4)*1.98);
-            this.doText('complete',this.fontTextSize + 'px sans-serif',
-             (this.circle.nativeElement.width / 4 ) *0.61,
-             (this.circle.nativeElement.height / 4)*2.8);
+            this.doText(this.randomNumberPerc + '%',this.fontPercSize + 'px Catamaran, calibri, sans-serif',
+             (this.circle.nativeElement.width / 4 ) *1.08,
+             (this.circle.nativeElement.height / 4)*2.0);
+            this.doText('complete',this.fontTextSize + 'px Catamaran, calibri, sans-serif',
+             (this.circle.nativeElement.width / 4 ) *1.10,
+             (this.circle.nativeElement.height / 4)*2.60);
         }
   }
 

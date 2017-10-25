@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // import { ValidationService } from './form-validation-service/validation.service';
 
 import { AboutModule } from './about/about.module';
+// import { AccordianModule } from 'angular-2-accordian/mk-accordian/accordian.module';
 import { HomeModule } from './home/home.module';
 import { TracksModule } from './tracks/tracks.module';
 import { ContactUsModule } from './contact-us/contact-us.module';
